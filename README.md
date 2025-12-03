@@ -6,7 +6,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-# 🚗 MasRental — Sistem Rental Kendaraan
+
+## 🚗 MasRental — Sistem Rental Kendaraan
 
 MasRental adalah aplikasi berbasis web untuk mengelola penyewaan kendaraan.  
 Dibuat sebagai tugas **PSAS** dengan menggunakan **Laravel 12**, **Bootstrap 5**, dan **MySQL**.
