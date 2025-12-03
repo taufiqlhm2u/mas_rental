@@ -57,7 +57,7 @@
             </div>
         </div>
         <header class="px-4 d-flex justify-content-end align-items-center flex-shrink-0" id="header">
-            Hello, apollonia
+            Hello &nbsp;<b>{{ Auth::user()->user_nama }}</b>
         </header>
 
         {{ $slot }}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
@@ -98,9 +99,32 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+       try{
+         if (!$request->password) {
+            User::where('user_id', '=', $request->user_id)->update([
+                'user_nama' => $request->nama,
+                'username' => $request->username,
+                'user_alamat' => $request->alamat,
+                'user_status' => $request->status,
+            ]);
+        } else {
+              User::where('user_id', '=', $request->user_id)->update([
+                'user_nama' => $request->nama,
+                'username' => $request->username,
+                'user_alamat' => $request->alamat,
+                'user_password' => Hash::make($request->password),
+                'user_status' => $request->status,
+            ]);
+        }
+
+        Alert::success('Sukses', 'Data berhasil diupdate');
+       } catch (Exception $e) {
+        Alert::error('Error', 'Data gagal diupdate');
+       }
+
+       return redirect()->route('adminUser');
     }
 
     /**

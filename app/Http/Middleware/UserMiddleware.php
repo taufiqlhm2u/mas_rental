@@ -18,7 +18,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->user_status != 'user') {
-            Alert::error('Error', 'Login sebagai user untuk akses halaman');
+            Alert::error('Error', 'Halaman tidak dapat di akses');
             return redirect()->route('adminDashboard');
         }
         return $next($request);
