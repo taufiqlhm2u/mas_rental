@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Kendaraan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class KendaraanController extends Controller
