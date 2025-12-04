@@ -119,7 +119,7 @@ class UserController extends Controller
             ]);
         }
 
-        Alert::success('Sukses', 'Data berhasil diupdate');
+        Alert::success('Berhasil', 'Data berhasil diupdate');
        } catch (Exception $e) {
         Alert::error('Error', 'Data gagal diupdate');
        }
@@ -135,7 +135,7 @@ class UserController extends Controller
         //
         User::where('user_id', '=', $id)->delete();
 
-        Alert::success('Hapus data', "User id = $id , berhasil dihapus");
+        Alert::success('Berhasil', "User id $id , berhasil dihapus");
         return redirect()->route('adminUser');
        
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('kendaraan', function (Blueprint $table) {
             $table->id('kendaraan_nomor');
             $table->string('kendaraan_nama', 100);
-            $table->enum('kendaraan_tipe', ['mobil', 'motor']);
+            $table->string('kendaraan_tipe');
             $table->integer('kendaraan_harga_perhari');
-            $table->enum('kendaraan_status', ['ready', 'booking', 'dirental']);
+            $table->enum('kendaraan_status', ['ready', 'booking', 'dirental'])->default('ready');
             $table->string('kendaraan_gambar');
         });
     }

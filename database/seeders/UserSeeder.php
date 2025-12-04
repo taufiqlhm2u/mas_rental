@@ -21,16 +21,16 @@ class UserSeeder extends Seeder
 
 
         // buat untuk admin
-        // User::create([
-        //     'user_nama' => 'Apollonia',
-        //     'user_alamat' => $faker->address(),
-        //     'username' => 'aplv34',
-        //     'user_password' => Hash::make('aplv'),
-        //     'user_status' => 'admin'
-        // ]);
+        User::create([
+            'user_nama' => 'Apollonia',
+            'user_alamat' => $faker->address(),
+            'username' => 'aplv34',
+            'user_password' => Hash::make('aplv'),
+            'user_status' => 'admin'
+        ]);
 
         // membuat beberapa user
-        for ($a= 1; $a <= 20; $a++) {
+        for ($a = 1; $a <= 20; $a++) {
             User::create([
                 'user_nama' => $faker->name(),
                 'user_alamat' => $faker->address(),
