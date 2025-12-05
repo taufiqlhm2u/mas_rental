@@ -1,0 +1,103 @@
+body {
+    background-color: #EFEEEA;
+}
+h4 {
+    color: #234c6a;
+}
+
+#rental {
+    background-color: #d8eefe;
+    color: #2994f2;
+}
+
+#booking {
+    background-color: #e8e3fd;
+    color: #6e42f5;
+}
+
+#today {
+    background-color: #fff6d7;
+    color: #e2a20b;
+}
+
+#telat {
+    background-color: #ffe1e1;
+    color: #d93025;
+}
+
+#selesai {
+    background-color: #ddf8e6;
+    color: #35c36c;
+}
+
+#rental:hover {
+    color: #d8eefe;
+    background-color: #2994f2;
+}
+
+#booking:hover {
+    color: #e8e3fd;
+    background-color: #6e42f5;
+}
+
+#today:hover {
+    color: #fff6d7;
+    background-color: #e2a20b;
+}
+
+#telat:hover {
+    color: #ffe1e1;
+    background-color: #d93025;
+}
+
+#selesai:hover {
+    color: #ddf8e6;
+    background-color: #35c36c;
+}
+
+.kartu {
+    width: 200px;
+    height: 100px;
+}
+
+.kartu:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.kartu .caption {
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.kartu .caption p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.kartu .caption p span {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.kartu i {
+    font-size: 24px;
+}
+
+.kartu span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 20px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}

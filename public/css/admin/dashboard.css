@@ -1,0 +1,95 @@
+.hero-img {
+    width: 100%;
+    height: 300px;
+    background-image: url("../../img/dashboard.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.kartu {
+    width: 200px;
+    height: 90px;
+}
+
+.kartu:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.kartu .caption {
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.kartu .caption p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.kartu .caption p span {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.kartu i {
+    font-size: 24px;
+}
+
+.kartu span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#quickinfo .kartu {
+    transition: ease 0.5s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+#quickinfo #user {
+    background: #d8eefe;
+    color: #2994f2;
+}
+
+#quickinfo #user:hover {
+    color: #d8eefe;
+    background-color: #2994f2;
+    transform: scale(1.1);
+}
+
+#quickinfo #kendaraan {
+    background: #e8e3fd;
+    color: #6e42f5;
+}
+
+#quickinfo #kendaraan:hover {
+    color: #e8e3fd;
+    background-color: #6e42f5;
+    transform: scale(1.1);
+}
+
+#quickinfo #rental {
+    background: #fff6d7;
+    color: #e2a20b;
+}
+
+#quickinfo #rental:hover {
+    color: #fff6d7;
+    background-color: #e2a20b;
+    transform: scale(1.1);
+}
+
+#quickinfo #tempo {
+    background: #ffe1e1;
+    color: #d93025;
+}
+
+#quickinfo #tempo:hover {
+    color: #ffe1e1;
+    background-color: #d93025;
+    transform: scale(1.05);
+}

@@ -19,9 +19,9 @@
 />
  
 </head>
-<body>
-
+<body style="background-color: #EFEEEA;">
+ <x-navbar></x-navbar>
 
       @include('sweetalert::alert')
 </body>
-</html>
+</html> 

@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class PinjamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('user.dashboard');
+        //
     }
 
     /**
@@ -35,7 +36,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $id;
     }
 
     /**

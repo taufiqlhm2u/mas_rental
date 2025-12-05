@@ -1,0 +1,41 @@
+body {
+    height: 100vh;
+    background: #efeeea;
+}
+
+#infoerror {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 3;
+}
+
+#infoerror .alert {
+    width: 400px;
+}
+#infoerror i {
+    font-size: 18px;
+}
+
+.login-box {
+    border-radius: 8px;
+    background-color: #fff;
+    height: 400px;
+}
+
+.hero-img {
+    height: 100%;
+    width: 300px;
+    background-image: url('../img/login.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px 0 0 8px;
+}
+
+register-box {
+    border-radius: 8px;
+    background-color: #fff;
+    height: 500px;
+}

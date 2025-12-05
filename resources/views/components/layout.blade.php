@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     @endif
 
-
+     @stack('css')
 </head>
 
 <body>
@@ -27,7 +27,9 @@
         <x-sidebar>{{ $slot }}</x-sidebar>
         <script src="{{ asset('js/sidebar.js') }}"></script>
     @else
+    <x-navbar></x-navbar>
         {{ $slot }}
+    <x-footer></x-footer>
     @endif
 
     @include('sweetalert::alert')

@@ -44,11 +44,12 @@ class AuthController extends Controller
         Auth::login($user);
         request()->session()->regenerate();
 
-        Alert::success('Selamat Datang', 'Bikin hidup mudah dengan Masrental');
         // cek user status dan redirect 
             if ($user->user_status == 'admin') {
+                Alert::info('Selamat datang!');
                 return redirect()->route('adminDashboard');
             } else {
+                Alert::info('Selamat datang!');
                 return redirect()->route('userDashboard');
             }
        

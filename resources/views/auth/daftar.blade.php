@@ -12,26 +12,22 @@
     <!-- remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <style>
-        #infoerror {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 
-<body style="height:100vh; background: #f4f4f4;" class="d-flex justify-content-center align-items-center">
+<body class="d-flex justify-content-center align-items-center">
 
     @if (session('error'))
 
-        <div style="position: absolute; top: 20px; left:50%; transform: translate(-50%); z-index: 2;" id="infoerror">
-            <div class="alert alert-danger" style="width: 400px;">
-                <i class="ri-error-warning-fill" style="font-size:18px;"></i>
+        <div id="infoerror">
+            <div class="alert alert-danger">
+                <i class="ri-error-warning-fill"></i>
                 {{ session('error') }}
             </div>
         </div>
     @endif
 
-    <div class="d-flex shadow" style="border-radius: 8px; background-color: #fff;">
+    <div class="d-flex shadow register-box">
         <div class="card border-0" style="width: 400px;">
             <div class="card-header">
                 <h2>Daftar</h2>
