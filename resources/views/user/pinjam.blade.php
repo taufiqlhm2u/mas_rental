@@ -23,41 +23,34 @@
                     <thead>
                         <tr class="table-dark">
                             <th width="1%">No</th>
-                            <th>Nama Lengkap</th>
-                            <th>Alamat</th>
-                            <th>Username</th>
-                            <th>Password</th>
+                            <th>Kendaraan</th>
+                            <th>Harga</th>
+                            <th>Tgl Pinjam</th>
+                            <th>Tgl Harus Kembali</th>
+                            <th>Tgl Kembali</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($user as $no => $u)
+                        @foreach ($rental as $no => $r)
                             <tr>
                                 <th class="text-nowrap">{{ $no + 1 }}</th>
-                                <td class="text-nowrap">{{ ucwords($u->user_nama) }}</td>
-                                <td class="text-nowrap">{{ $u->user_alamat }}</td>
-                                <td class="text-nowrap">{{ $u->username }}</td>
-                                <td class="text-nowrap">*******</td>
+                                <td class="text-nowrap">{{ ucwords($r->kendaraan_nama) }}</td>
+                                <td class="text-nowrap">{{ $r->kendaraan_harga_perhari }}</td>
+                                <td class="text-nowrap">{{ $r->tgl_pinjam }}</td>
+                                <td class="text-nowrap">{{ $r->tgl_harus_kembali }}</td>
+                                <td class="text-nowrap">{{ $r->tgl_selesai }}</td>
                                 <td class="text-nowrap">
-                                    @if ($u->user_status == 'admin')
-                                        <span class="status-admin">{{ ucfirst($u->user_status) }}</span>
+                                    @if ($r->pinjam_status == 'ready')
+                                        <span class="status-admin">{{ ucfirst($r->pinjam_status) }}</span>
                                     @else
-                                        <span class="status-user">{{ ucfirst($u->user_status) }}</span>
+                                        <span class="status-user">{{ ucfirst($r->pinjam_status) }}</span>
                                     @endif
                                 </td>
                                 <td class="text-nowrap d-flex gap-2">
-                                    <!-- ----- button edit ------ -->
-                                    <a href="#" class="editModal aksi text-primary" data-user-id="{{ $u->user_id }}"
-                                        data-user-nama="{{ $u->user_nama }}" data-username="{{ $u->username }}"
-                                        data-user-alamat="{{ $u->user_alamat }}"
-                                        data-user-status="{{ $u->user_status }}" data-bs-toggle="modal"
-                                        data-bs-target="#editUser">
-                                            <i class="ri-edit-2-fill"></i>
-                                    </a>
-
                                     <!-- ------- button hapus -------- -->
-                                    <a href="{{ route('admin.user.destroy', $u->user_id) }}" data-confirm-delete="true"
+                                    <a href="" data-confirm-delete="true"
                                         class="aksi text-danger">
                                         <i class="ri-delete-bin-6-fill"></i>
                                     </a>

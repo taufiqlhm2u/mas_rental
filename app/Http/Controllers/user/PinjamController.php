@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
+use App\Models\Pinjam;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PinjamController extends Controller
 {
@@ -12,7 +13,8 @@ class PinjamController extends Controller
      */
     public function index()
     {
-        return view('user.pinjam');
+        $rental = Pinjam::where('user_id', '=', auth()->user()->user_id)->join('kendaraan', 'pinjam.kendaraan_nomor', '=', 'kendaraan.kendaraan_nomor')->get();
+        return view('user.pinjam', ['rental' => $rental]);
     }
 
     /**
