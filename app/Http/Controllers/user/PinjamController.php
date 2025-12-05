@@ -12,7 +12,7 @@ class PinjamController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.pinjam');
     }
 
     /**

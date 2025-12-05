@@ -1,0 +1,30 @@
+body {
+    background-color: #EFEEEA;
+}
+
+h4 {
+    color: #234c6a;
+}
+
+.card-body div a {
+    width: 80px;
+}
+
+#rental {
+    background-color: #d8eefe;
+    color: #2994f2;
+}
+
+#booking {
+    background-color: #e8e3fd;
+    color: #6e42f5;
+}
+
+#ready {
+    background-color: #ddf8e6;
+    color: #35c36c;
+}
+
+footer {
+    margin-top: 80px;
+}
