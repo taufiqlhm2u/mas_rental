@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Kendaraan;
+use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -140,7 +141,8 @@ class KendaraanController extends Controller
     public function destroy(string $id)
     {
         $kendaraan = Kendaraan::where('kendaraan_nomor', $id)->first();
-        if ($kendaraan) {
+       try {
+         if ($kendaraan) {
             // hapus gambar dari folder
             $gambarPath = public_path('img/upload/') . $kendaraan->kendaraan_gambar;
             if (file_exists($gambarPath)) {
@@ -152,6 +154,9 @@ class KendaraanController extends Controller
         } else {
             Alert::error('Gagal', 'Data kendaraan tidak ditemukan!');
         }
+       } catch (Exception $e) {
+        Alert::error('Gagal', 'Data kendaraan tidak ditemukan!');
+       }
 
         return redirect()->route('adminKendaraan');
     }

@@ -61,7 +61,7 @@ class PinjamController extends Controller
             'kendaraan_status' => 'booking'
         ]);
 
-        Alert::success('Berhasil', 'Kendaraan berhasil di booking');
+        Alert::success('Berhasil', 'Kendaraan berhasil di booking, datang ke masrental untuk proses selanjutnya, apabila 3 hari tidak datang maka booking akan dibatalkan');
         return redirect()->route('userPinjam');
     }
 

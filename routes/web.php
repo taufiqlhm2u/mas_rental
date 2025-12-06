@@ -8,7 +8,7 @@ use App\Http\Controllers\AuthController;
 Route::middleware('guest')->group(function () {
     // welcome page
     Route::get('/', function () {
-        return view('welcome'); });
+        return redirect('/login'); });
 
     // login dan daftar 
     Route::controller(AuthController::class)->group(function () {

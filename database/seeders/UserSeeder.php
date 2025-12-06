@@ -28,8 +28,17 @@ class UserSeeder extends Seeder
             'user_password' => Hash::make('aplv'),
             'user_status' => 'admin'
         ]);
-
+        
         // membuat beberapa user
+
+        User::create([
+            'user_nama' => 'taufiqul',
+            'user_alamat' => $faker->address(),
+            'username' => 'taufiqlhm2u',
+            'user_password' => Hash::make('taufiq'),
+            'user_status' => 'user'
+        ]);
+
         for ($a = 1; $a <= 20; $a++) {
             User::create([
                 'user_nama' => $faker->name(),

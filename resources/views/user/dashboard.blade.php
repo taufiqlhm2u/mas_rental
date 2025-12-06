@@ -87,7 +87,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $rental->kendaraan_nama }} {{ $rental->kendaraan_tipe }}</h5>
                             <p class="card-text">Status: {{ ucfirst($rental->pinjam_status) }}</p>
-                            <a href="{{ route('userPinjamShow', $rental->pinjam_id) }}" class="btn btn-primary">Lihat Detail</a>
+                           
                     </div>
                    @endforeach
                 </div>

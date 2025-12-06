@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="/admin/pinjam" class="sidebar-link">
+                <a href="/admin/rental" class="sidebar-link">
                     <i class="ri-p2p-fill"></i>
                     <span>Peminjaman</span>
                 </a>

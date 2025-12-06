@@ -10,10 +10,12 @@ class Pinjam extends Model
     protected $primaryKey = 'pinjam_id';
     public $timestamps = false;
     protected $fillable = [
+        'pinjam_id',
         'user_id',
         'kendaraan_nomor',
-        'pinjam_tgl',
-        'pinjam_tgl_kembali',
+        'tgl_pinjam',
+        'tgl_harus_kembali',
+        'tgl_kembali',
         'pinjam_status',
     ];
 }

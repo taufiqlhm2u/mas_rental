@@ -84,7 +84,7 @@
                                                 <i class="ri-close-circle-line"></i>Batal
                                             </a>
                                         @else
-                                            <span data-confirm-delete="true"
+                                            <span
                                                 class="aksi text-secondary border-0 bg-transparent">
                                                 <i class="ri-close-circle-line"></i>Batal
                                             </span>

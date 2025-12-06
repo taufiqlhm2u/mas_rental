@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\PinjamController;
 use App\Http\Controllers\admin\UserController as adminUser;
 use App\Http\Controllers\admin\KendaraanController as adminKendaraan;
 
@@ -32,6 +33,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
             Route::get('/kendaraan/search/', 'search');
             Route::delete('/kendaraan/destroy/{id}', 'destroy')->name('admin.kendaraan.destroy');
             Route::post('/kendaraan/update', 'update');
+        });
+
+        // admin: crud pinjam
+        Route::controller(PinjamController::class)->group(function () {
+            Route::get('/rental', 'index')->name('adminPinjam');
+            Route::post('/rental/store', 'store');
+            Route::get('/rental/search/', 'search');
+            Route::delete('/rental/destroy/{id}', 'destroy')->name('admin.rental.destroy');
+            Route::post('/rental/update', 'update');
         });
     });
 

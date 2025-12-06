@@ -16,9 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('kendaraan_nomor');
             $table->enum('pinjam_status', ['booking', 'dipinjam', 'dikembalikan', 'dibatalkan']);
-            $table->date('tgl_pinjam')->nullable()->default(null);
-            $table->date('tgl_harus_kembali')->nullable()->default(null);
-            $table->date('tgl_kembali')->nullable()->default(null);
+            $table->date('tgl_pinjam')->nullable();
+            $table->date('tgl_harus_kembali')->nullable();
+            $table->date('tgl_kembali')->nullable();
+            $table->date('create_at')->useCurrent();
 
             // foreign key
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
