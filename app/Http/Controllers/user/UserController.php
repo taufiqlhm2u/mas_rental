@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Models\User;
 use App\Models\Pinjam;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -44,51 +46,37 @@ class UserController extends Controller
         return view('user.dashboard', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function profile(Request $request)
     {
-        //
+        User::where('user_id', '=', auth()->user()->user_id)->update([
+            'user_nama' => $request->nama,
+            'username' => $request->username,
+            'user_alamat' => $request->alamat,
+        ]);
+
+        Alert::success('Berhasil', 'Profile berhasil diupdate');
+        return redirect()->route('userDashboard');
+    }
+    
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'oldpass' => 'required',
+            'newpass' => 'required',
+        ]);
+
+        if (!\Hash::check($request->oldpass, auth()->user()->user_password)) {
+
+            Alert::error('Gagal', 'Password lama tidak sesuai');
+            return redirect()->route('userDashboard');
+        }
+
+        User::where('user_id', '=', auth()->user()->user_id)->update([
+            'user_password' => Hash::make($request->newpass),
+        ]);
+
+        Alert::success('Berhasil', 'Password berhasil diubah');
+        return redirect()->route('userDashboard');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        return 'cek';
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

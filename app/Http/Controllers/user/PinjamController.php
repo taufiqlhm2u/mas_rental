@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\user;
 
 use App\Models\Pinjam;
+use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PinjamController extends Controller
 {
@@ -13,8 +15,23 @@ class PinjamController extends Controller
      */
     public function index()
     {
-        $rental = Pinjam::where('user_id', '=', auth()->user()->user_id)->join('kendaraan', 'pinjam.kendaraan_nomor', '=', 'kendaraan.kendaraan_nomor')->get();
-        return view('user.pinjam', ['rental' => $rental]);
+        $rental = Pinjam::where('user_id', '=', auth()->user()->user_id)->join('kendaraan', 'pinjam.kendaraan_nomor', '=', 'kendaraan.kendaraan_nomor')->orderBy('pinjam_id', 'DESC')->paginate(5);
+
+        // tengat hari ini
+        $tengat = Pinjam::where('user_id', '=', auth()->user()->user_id)->where('tgl_harus_kembali', '=', date('Y-m-d'))->join('kendaraan', 'pinjam.kendaraan_nomor', '=', 'kendaraan.kendaraan_nomor')->get();
+
+        // pinjam
+        $pinjam = Pinjam::where('user_id', '=', auth()->user()->user_id)->where('pinjam_status', '=', 'dipinjam')->join('kendaraan', 'pinjam.kendaraan_nomor', '=', 'kendaraan.kendaraan_nomor')->get();
+
+        $data = [
+            'rental' => $rental,
+            'tengat' => $tengat,
+            'pinjam' => $pinjam,
+        ];
+        $title = 'Masrental';
+        $text = 'Apakah kamu ingin batalkan kendaraan ini?';
+        confirmDelete($title, $text);
+        return view('user.pinjam', $data);
     }
 
     /**
@@ -25,43 +42,47 @@ class PinjamController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function book(int $nomor)
     {
-        //
+        $k = Kendaraan::where('kendaraan_nomor', '=', $nomor)->first();
+       if (!$k) {
+           Alert::error('Gagal', 'Kendaraan tidak ditemukan');
+           return redirect()->route('userPinjam');
+       }
+
+         Pinjam::create([
+            'user_id' => auth()->user()->user_id,
+            'pinjam_status' => 'booking',
+            'kendaraan_nomor' => $k->kendaraan_nomor,
+        ]);
+
+
+        Kendaraan::where('kendaraan_nomor', '=', $nomor)->update([
+            'kendaraan_status' => 'booking'
+        ]);
+
+        Alert::success('Berhasil', 'Kendaraan berhasil di booking');
+        return redirect()->route('userPinjam');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+   
+    public function cancel(string $id)
     {
-        return $id;
-    }
+        $p = Pinjam::where('pinjam_id', '=', $id)->first();
+        if (!$p) {
+            Alert::error('Gagal', 'Data pinjam tidak ditemukan');
+            return redirect()->route('userPinjam');
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        Kendaraan::where('kendaraan_nomor', '=', $p->kendaraan_nomor)->update([
+            'kendaraan_status' => 'ready'
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        Pinjam::where('pinjam_id', '=', $id)->update([
+            'pinjam_status' => 'dibatalkan'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        Alert::success('Berhasil', 'Booking kendaraan berhasil dibatalkan');
+        return redirect()->route('userPinjam');
     }
 }

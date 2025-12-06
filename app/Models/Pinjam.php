@@ -11,7 +11,7 @@ class Pinjam extends Model
     public $timestamps = false;
     protected $fillable = [
         'user_id',
-        'kendaraan_id',
+        'kendaraan_nomor',
         'pinjam_tgl',
         'pinjam_tgl_kembali',
         'pinjam_status',

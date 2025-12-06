@@ -49,14 +49,14 @@
                         </div>
 
                         @if ($k->kendaraan_status == 'ready')
-                            <a href="#" class="btn btn-primary w-100 py-2 fw-semibold"
+                            <a onclick="return confirm('Apkah kamu ingin booking {{ $k->kendaraan_nama . ' ' . $k->kendaraan_tipe }}');" href="/pinjam/book/{{ $k->kendaraan_nomor }}" class="btn btn-primary w-100 py-2 fw-semibold"
                                 style="font-size: .9rem; border-radius: 8px;">
-                                Rental
+                                Book
                             </a>
                         @else
                             <button type="button" class="btn border-secondary text-secondary w-100 py-2 fw-semibold"
                                 style="font-size: .9rem; border-radius: 8px;">
-                                Rental
+                                Book
                             </button>
                         @endif
                     </div>

@@ -14,7 +14,8 @@ use App\Http\Controllers\user\KendaraanController;
 Route::middleware(['auth', 'user'])->group(function () {
     Route::controller(UserControll::class)->group(function () {
         Route::get('/dashboard', 'index')->name('userDashboard');
-        Route::get('/profile', 'profile')->name('userProfile');
+        Route::post('/profile/update', 'profile')->name('userProfile');
+        Route::post('/password/change', 'changePassword')->name('userChangePassword');
     });
 
     Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('userKendaraan');
@@ -22,7 +23,7 @@ Route::middleware(['auth', 'user'])->group(function () {
 
     Route::controller(PinjamController::class)->group(function () {
         Route::get('/rental', 'index')->name('userPinjam');
-        Route::post('/pinjam/store', 'store')->name('userPinjamStore');
-        Route::get('/pinjam/{id}/show', 'show')->name('userPinjamShow');
+        Route::get('/pinjam/book/{id}', 'book')->name('userPinjamBook');
+        Route::delete('/pinjam/cancel/{id}', 'cancel')->name('rentalCancel');
     });
 });
