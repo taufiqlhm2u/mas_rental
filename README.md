@@ -17,7 +17,6 @@ Dibuat sebagai tugas **PSAS** dengan menggunakan **Laravel 12**, **Bootstrap 5**
 - CRUD data kendaraan
 - Sistem peminjaman kendaraan
 - Riwayat peminjaman
-- Dashboard statistik sederhana
 
 ---
 
@@ -33,7 +32,7 @@ Dibuat sebagai tugas **PSAS** dengan menggunakan **Laravel 12**, **Bootstrap 5**
 | Teknologi | Versi |
 |----------|-------|
 | Laravel | 12 |
-| PHP | 8.36 |
+| PHP | 8.2 |
 | Bootstrap | 5 |
 | MySQL | 8 |
 | ORM | Eloquent |
@@ -44,12 +43,15 @@ Dibuat sebagai tugas **PSAS** dengan menggunakan **Laravel 12**, **Bootstrap 5**
 | Tabel | Deskripsi |
 |-------|-----------|
 | `users` | Data user termasuk admin & user biasa |
-| `kendaraans` | Data kendaraan yang dapat disewa |
-| `pinjams` | Transaksi peminjaman kendaraan |
-| Tabel konfigurasi laravel|
+| `kendaraan` | Data kendaraan yang dapat disewa |
+| `pinjam` | Transaksi peminjaman kendaraan |
 
 ---
-
+## Preview
+| Login | Dashboard | kendaraan |
+|-------|------|--------------|
+| <img src="public/img/preview/login.png" width="250"/> | <img src="public/img/preview/dashboard.png" width="250"/> | <img src="public/img/preview/kendaraan.png" width="250"/> |
+---
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
