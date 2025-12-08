@@ -46,7 +46,20 @@ class PinjamController extends Controller
             ->orderBy('pinjam.pinjam_id', 'DESC')
             ->paginate(5);
 
-        return view('admin.pinjam', ['pinjam' => $pinjam]);
+            $user = User::where('user_status', 'USER')->get();
+        $kendaraan = Kendaraan::where('kendaraan_status', '=', 'ready')->get();
+
+        $data = [
+            'pinjam' => $pinjam,
+            'user' => $user,
+            'kendaraan' => $kendaraan
+        ];
+
+         $title = 'Hapus data';
+        $text = 'Apakah yakin ingin mengahpus data peminjaman user?';
+        confirmDelete($title, $text);
+
+        return view('admin.pinjam', $data);
     }
 
     /**
